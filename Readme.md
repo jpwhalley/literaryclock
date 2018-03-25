@@ -36,7 +36,7 @@ This needs to run using the PySpark API. I must confess I could not get this to 
 &nbsp;
 
 	gutenberg_metadata.py
-Having downloaded ~ 50,000 ebooks from [Project Gutenberg](https://www.gutenberg.org/) as discussed in [this post](http://www.literaryclock.com/posts/Lt1_Crowdsourcing/Lt3_50000_Books), this is some nifty code so we can link the filenames downloaded with the author and title of the books they contain. [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/) (version 4.5.3) does the heavy lifting, with some hacks either side of it to get the author and title as plain strings. The results are returned as dictionary, with the filename as key and author and title in a list. I used these results to rename and move the 50,000 files into many folders to set `find_times.py` on.
+Having downloaded ~ 50,000 ebooks from [Project Gutenberg](https://www.gutenberg.org/) as discussed in [this post](http://www.literaryclock.com/posts/Lt3_50000_Books), this is some nifty code so we can link the filenames downloaded with the author and title of the books they contain. [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/) (version 4.5.3) does the heavy lifting, with some hacks either side of it to get the author and title as plain strings. The results are returned as dictionary, with the filename as key and author and title in a list. I used these results to rename and move the 50,000 files into many folders to set `find_times.py` on.
 
 &nbsp;
 
@@ -44,10 +44,7 @@ Having downloaded ~ 50,000 ebooks from [Project Gutenberg](https://www.gutenberg
 In the books folder I have two books; a Sherlock Holmes Collection and Around the World in Eighty Days. These were downloaded from [Project Gutenberg](https://www.gutenberg.org) in mobi form and converted to text files using `convert_books_wrapper.py`.
 
 #### Metadata
-Here are two examples of the rdf files downloaded from [Project Gutenberg](https://www.gutenberg.org/wiki/Gutenberg:Feeds), covering the metadata of the two books described above, to demonstrate what `gutenberg_metadata.py` does.
+Here are two examples of the rdf files downloaded from [Project Gutenberg](https://www.gutenberg.org/wiki/Gutenberg:Feeds), covering the metadata of the two books described above.
 
 #### Results
 `time_results.tsv` contains the results of `find_times.py` run on the books above for the times 04:25 and 11:29. It can be opened as a spreadsheet for easier viewing.
-
-### Permissions
-Feel free to use any of this code and cite [www.literaryclock.com](http://www.literaryclock.com/posts/) as a source.
