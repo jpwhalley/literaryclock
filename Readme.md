@@ -1,8 +1,10 @@
 ## Literary clock code
 
 ### Requirements:
-Calibre version 2.85.1 - Downloadable from [here](https://calibre-ebook.com/download) - needed to convert the ebooks to text file
+Calibre version 2.85.1 - Downloadable from [here](https://calibre-ebook.com/download) - needed to convert the ebooks to text file.
+
 Python 2.7 - I have [Anaconda Python 2.7 version](https://www.anaconda.com/download/) installed.
+
 Spark 2.20 - Can be downloaded from [Apache](https://www.apache.org/dyn/closer.lua/spark/spark-2.2.0/spark-2.2.0-bin-hadoop2.7.tgz).
 
 ### Description
