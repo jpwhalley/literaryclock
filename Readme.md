@@ -12,6 +12,7 @@ Spark 2.20 - Can be downloaded from [Apache](https://www.apache.org/dyn/closer.l
 Code that helped build the literary clock, further explanation can be found at [www.literaryclock.com](http://www.literaryclock.com/posts/).
 
 &nbsp;
+
 	amazon_affiliate_api.py
 A code snippet of how I used the amazon api to get the unique asin identifier for the book from which a quote came from.
 
@@ -45,6 +46,7 @@ Having downloaded ~ 50,000 ebooks from [Project Gutenberg](https://www.gutenberg
 This needs to run using the PySpark API. I must confess I could not get this to work as a stand alone file. Instead I removed the indentation of the main function code and ran it in the `$SPARK/bin/./pyspark` command line. If the folder containing the books returns times greater than the memory available this will crash. Hence I try divide the books between many folders and run the code iteratively for each folder. The code expects the file name to be of the form `author - book_title.txt`. If it part of series, I have also added code to deal with `author - book_title (3rd Series Title)` - basically all I want from the filename is the author and book title (and it expects them in that order separated by ` - `). The output in the tab separated file (time_results.tsv) will not be in any necessary order and may contain many false positives.
 
 &nbsp;
+
 	twitter_bot.py
 The code I use to send a tweet and set up the cron scheduler to send the next tweet at the appropriate time. The code should work recursively through `time_results.tsv` sending a tweet of the next quote in the file until it runs out. Care must be taken that all the quotes (plus book title and author) are less than 280 characters.
 
