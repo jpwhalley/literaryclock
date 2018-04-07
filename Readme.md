@@ -14,7 +14,7 @@ Code that helped build the literary clock, further explanation can be found at [
 &nbsp;
 
 	amazon_affiliate_api.py
-A code snippet of how I used the amazon api to get the unique asin identifier for the book from which a quote came from.
+A code snippet of how I used the amazon api to get the unique asin identifier for the book from which a quote came from. Needs [python-amazon-product-api (version 0.2.8)](http://python-amazon-product-api.readthedocs.io/en/latest/) to work and a Amazon Associates Web Service account as described in the [api documents](http://python-amazon-product-api.readthedocs.io/en/latest/basic-usage.html).
 
 &nbsp;
 
@@ -48,7 +48,7 @@ This needs to run using the PySpark API. I must confess I could not get this to 
 &nbsp;
 
 	twitter_bot.py
-The code I use to send a tweet and set up the cron scheduler to send the next tweet at the appropriate time. The code should work recursively through `time_results.tsv` sending a tweet of the next quote in the file until it runs out. Care must be taken that all the quotes (plus book title and author) are less than 280 characters.
+The code I use to send a tweet and set up the cron scheduler to send the next tweet at the appropriate time. To do so I made use of the [Tweepy library (version 3.5.0)](http://www.tweepy.org/). The code should work recursively through `time_results.tsv` sending a tweet of the next quote in the file until it runs out. Care must be taken that all the quotes (plus book title and author) are less than 280 characters.
 
 &nbsp;
 
