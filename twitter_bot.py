@@ -20,7 +20,8 @@ with open("time_results.tsv", 'w') as f:
 if lines != []: 
     temp = lines[1].split('\t')
     time = temp[0].split(':')
-    cron_job =  time[1] + " " + time[0] + " * * * sudo python twitter_bot.py\n"
+    # May need to use sudo
+    cron_job =  time[1] + " " + time[0] + " * * * python twitter_bot.py\n"
             
     with open("/etc/cron.d/per_minute", 'w') as f:
         f.write(cron_job)
