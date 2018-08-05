@@ -9,7 +9,7 @@ def get_times(time):
     mtemp = temp[1]
     htemp = temp[0]
     
-    time2check = [time, htemp + '.' + mtemp, htemp + mtemp]
+    time2check = [time, htemp + '.' + mtemp, htemp + mtemp + ' h', htemp + mtemp + 'h']
     if htemp == '00':
         time2check.append(str(int(htemp)) + ':' + mtemp)
         time2check.append(str(int(htemp)) + '.' + mtemp)
@@ -161,8 +161,77 @@ def get_times(time):
             else:
                 time2check.append(hour + ' ' + minute)
                 time2check.append(hour + '-' + minute)
-            
+    
+    temp_to_add = []
+    for instance in time2check:
+        if instance[0].isalpha():
+            temp_to_add.append(instance[0].upper() + instance[1:])
+            temp_to_add.append("".join(c.upper() if c.islower() else c.lower() for c in instance))
+        else:
+            for i in instance[1:]:
+                if i.isalpha():
+                    temp_to_add.append("".join(c.upper() if c.islower() else c.lower() for c in instance))
+                    break
+    
+    time2check += temp_to_add
+    
     return(time2check)
+    
+def nuance(key):
+    """Give the time just before and after a time
+		INPUT: a time
+		FUNCTION: nuance(key)
+		OUTPUT: times
+        Time taken: quick, quick"""
+    temp = key.split(':')
+    if temp[1] == '00':
+        am = 59
+        ah = int(temp[0]) - 1
+        pm = 1
+        ph = int(temp[0])
+    elif temp[1] == '59':
+        am = '58'
+        ah = int(temp[0])
+        pm = '00'
+        ph = int(temp[0]) + 1
+    else:
+        am = int(temp[1]) - 1
+        ah = int(temp[0])
+        pm = int(temp[1]) + 1
+        ph = int(temp[0])
+        
+    if ah == 24:
+        ah = 0
+    elif ah == -1:
+        ah = 23
+    if ph == 24:
+        ph = 0
+    elif ph == -1:
+        ph = 23
+        
+    if ah < 10:
+        if am < 10:
+            just_before = '0' + str(ah) + ':0' + str(am)
+        else:
+            just_before = '0' + str(ah) + ':' + str(am)
+    else:
+        if am < 10:
+            just_before = str(ah) + ':0' + str(am)
+        else:
+            just_before = str(ah) + ':' + str(am)
+        
+    if ph < 10:
+        if pm < 10:
+            just_after = '0' + str(ph) + ':0' + str(pm)
+        else:
+            just_after = '0' + str(ph) + ':' + str(pm)
+    else:
+        if pm < 10:
+            just_after = str(ph) + ':0' + str(pm)
+        else:
+            just_after = str(ph) + ':' + str(pm)
+        
+    return([just_before, just_after])
     
 def digit2word(digit):
     """Turn a digital number (eg. 13) into word
